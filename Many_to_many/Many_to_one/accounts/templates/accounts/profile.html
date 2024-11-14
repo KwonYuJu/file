@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ person.username }}님의 프로필</h1>
+  <br>
+  <hr>
+  {% comment %} user의 외래키를 article과 comment가 갖고 있다. {% endcomment %}
+  {% comment %} -> article을 가져오려면 역참조를 해야함 {% endcomment %}
+  <h2>{{ person.username }}이 작성한 게시글</h2>
+  {% for article in person.article_set.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+  <hr>
+
+  <h2>{{ person.username }}이 작성한 댓글</h2>
+  {% for comment in person.comment_set.all %}
+    <div>{{ comment.content }}</div>
+  {% endfor %}
+  <hr>
+
+  <h2>{{ person.username }}이 좋아요 한 게시글</h2>
+  {% for article in person.like_articles.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+  <hr>
+
+{% endblock content %}

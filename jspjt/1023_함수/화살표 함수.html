@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 비동기 통신
+    console.log('시작')
+    // 콜백 함수
+    setTimeout(() => {
+      console.log('5초 후에 시작')
+    // 콜백함수가 계속 중첩되면 -> 콜백지옥 발생
+    }, 5000)
+    console.log('끝')
+
+
+    // 화살표 함수
+    // 언제 많이 활용할까? -> 비동기 통신에서 콜백함수로 많이 활용
+    const arrow1 = function (name) {
+      return `hello, ${name}`
+    }
+
+    // 1. function 키워드 삭제 -> 화살표 작성
+    const arrow2 = (name) => {return `hello, ${name}`}
+
+    // 2. 소괄호 삭제 (인자가 1개일 경우만 가능)
+    const arrow3 = name => {return `hello, ${name}`}
+
+    // 3. 중괄호, return 삭제 (표현식이 1개일 경우만 가능)
+    const arrow4 = name => `hello, ${name}`
+
+  </script>
+</body>
+
+</html>

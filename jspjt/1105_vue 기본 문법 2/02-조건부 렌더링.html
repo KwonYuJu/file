@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-if와 v-else를 사용한 조건부 렌더링 -->
+    <!-- v-if는 false일 때 요소(태그)가 "DOM에서 완전히 제거" -->
+    <p v-if="isSeen">true일 때 보여요</p>
+    <p v-else>false일 때 보여요</p>
+    
+    <!-- 토글 버튼 -->
+    <button @click="isSeen = !isSeen">토글</button>
+
+    <!-- v-if, v-else-if, v-else를 사용한 다중 조건 렌더링 -->
+    <div v-if="name === 'Alice'">Alice입니다</div>
+    <div v-else-if="name === 'Bella'">Bella입니다</div>
+    <div v-else-if="name === 'Cathy'">Cathy입니다</div>
+    <div v-else>아무도 아닙니다.</div>
+
+    <!-- template 태그를 사용한 그룹 조건부 렌더링 -->
+    <template v-if="name === 'Cathy'">
+      <div>Cathy입니다</div>
+      <div>나이는 30살입니다</div>
+    </template>
+
+    <!-- v-show -->
+    <!-- v-if와 v-show의 차이 -->
+    <!-- v-show는 DOM에서 제거되지 않고 "display:none으로 숨김" -->
+    <div v-show="isShow">v-show</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+
+        const isSeen = ref(true) 
+        const name = ref('Cathy')  
+        const isShow = ref(true)  
+
+        
+        return {
+          isSeen,
+          name,
+          isShow
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+</html>

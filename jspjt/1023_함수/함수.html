@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 함수 선언식, num1과 num2의 합을 반환
+    function add (num1, num2) {
+      return num1 + num2
+    }
+    console.log(add(1, 2))
+
+    // 함수 표현식, num1과 num2의 차를 반환
+    const sub = function (num1, num2) {
+      return num1 - num2
+    }
+    console.log(sub(2, 1))
+
+    // 왜 함수 표현식을 써야할까?
+    // 함수 선언식의 문제점 : 호이스팅
+    // 함수를 먼저 호출하고 나중에 선언해도 동작을 함
+    
+
+    // 기본 함수 매개변수, 매개 변수의 Default값 지정
+    const greeting = function (name = "kelly") {
+      return `Hi ${name}`
+    }
+    console.log(greeting('yuju'))
+
+
+    // 나머지 매개변수 (가변 인자) : 스프레드 연산자 (...)
+    // 스프레드 연산자가 매개변수로 사용될 때는 
+    // 남은 모든 인자들(3, 4, 5)을 배열로 모아준다.
+    const myFunc = function (num1, num2, ...restArgs) {
+      return [num1, num2, restArgs]
+    }
+    console.log(myFunc(1, 2, 3, 4, 5))
+
+
+    // 매개변수와 인자의 개수 불일치 허용
+    // 매개변수 개수가 인자 개수 보다 많을 때
+    // 할당 하지 않은 매개변수는 어떻게 반환될까? -> undefined로 반환
+    const threeArgs = function (num1, num2, num3) {
+      return [num1, num2, num3]
+    }
+    console.log(threeArgs(1, 2))
+
+
+    // 매개변수 개수보다 인자 개수가 많을 때
+    // 초과된 인자는 무시됨
+    const twoArgs = function (num1, num2) {
+      return [num1, num2]
+    }
+    console.log(twoArgs(1, 2, 3))
+
+  </script>
+</body>
+
+</html>
